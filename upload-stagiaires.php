@@ -22,9 +22,10 @@ function demander() {
 function traiter() {
 	$filename = str_replace("\\", "/", $_FILES["stagiaires"]['tmp_name']);
 	print "emplacement : $filename";
-        print "<br/>";
+	print "<br/>";
 	$content = file_get_contents($filename);
 	print "<pre>$content</pre>";
+        
 	try {
 		$db = getConnexion();
 		$sql = 
