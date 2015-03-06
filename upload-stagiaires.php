@@ -20,20 +20,19 @@ function demander() {
 }
 
 function traiter() {
-	// $filename = str_replace("\\", "/", $_FILES["stagiaires"]['tmp_name']);
-	// print "emplacement : $filename";
-	// print "<br/>";
-	// $content = file_get_contents($filename);
-	// print "<pre>$content</pre>";
+	$filename = str_replace("\\", "/", $_FILES["stagiaires"]['tmp_name']);
+	print "emplacement : $filename";
+        print "<br/>";
+	$content = file_get_contents($filename);
+	print "<pre>$content</pre>";
 	try {
 		$db = getConnexion();
-		// $sql = 
-			// "LOAD DATA INFILE '$filename' 
-			// INTO TABLE personne
-			// FIELDS TERMINATED BY ';'
-			// LINES TERMINATED BY '\r\n'
-			// IGNORE 1 LINES;"; // ligne des noms de champs
-    $sql = "SELECT * FROM personne";
+		$sql = 
+                    "LOAD DATA INFILE '$filename' 
+                    INTO TABLE personne
+                    FIELDS TERMINATED BY ';'
+                    LINES TERMINATED BY '\r\n'
+                    IGNORE 1 LINES;"; // ligne des noms de champs
 		$count = $db->exec($sql);
 		print "$count lignes affectées";
 	}
@@ -44,9 +43,9 @@ function traiter() {
 
 /** Fournit une connection à la base test, en UTF-8 */
 function getConnexion() {
-	$dsn = 'mysql:dbname=db524752934;host=db524752934.db.1and1.com';
-	$user = 'dbo524752934';
-	$password = 'Greta2014';
+	$dsn = 'mysql:dbname=db524752934;host=127.0.0.1';
+	$user = 'root';
+	$password = '';
 	$bdd = new PDO($dsn, $user, $password);
 	// Forcer la communication en utf-8
 	$bdd->exec("SET character_set_client = 'utf8'");
