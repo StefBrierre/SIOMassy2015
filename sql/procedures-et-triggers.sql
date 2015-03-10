@@ -39,13 +39,15 @@ BEGIN
   INSERT INTO personne
   (id_personne,civilite,prenom, nom,adresse,code_postal,ville,telephone,telephone2,email,mot_passe,date_inscription,est_inscrite) VALUES
   (1, 'M.', 'Joel', 'BANKA', '3 Rue du Gros Chêne', '92370', 'CHAVILLE', '0614787928', null, 'bankajoel@yahoo.fr', 'banka', '2014-06-02 09:00:00', 0),
-  (2, 'Mle', 'Stephanie', 'BRIERE', '25 Avenue de la gare', '92000', 'VELIZY', '0956789101', null, 'stephanibriere@gmail.com', 'walle', '2014-06-02 09:00:00', 0),
-  (3, 'Mle', 'Marion', 'DESCIEUX', '12 Rue du temple', '95000', 'ARGENTEUIL', '0125897456', null, 'mariondescieux@yahoo.fr', 'java8', '2014-06-02 09:00:00', 0);
+  (2, 'Mle', 'Stephanie', 'BRIERRE', '40 Rue EXELMANS', '78140', 'VELIZY', '0662931606', null, 'stephanibrierRe@gmail.com', 'telephone', '2014-06-02 09:00:00', 0),
+  (3, 'Mle', 'Marion', 'DESCIEUX', '60 Rue du General leclerc', '91470', 'FORGES LES BAINS', '0673422520', null, 'mariondescieux@yahoo.fr', 'bouboul', '2014-06-02 09:00:00', 0),
+  (4, 'M.',  'Michel', 'PLACE', '43 Rue Saint louis a lile', '75100', 'PARIS', '0651080681', null, 'michelplace@free.fr','internet','2014-06-02 09:00:00', 0),
+  (5, 'M.',  'Pascal', 'SORIN', '43 Rue Saint louis a lile', '75100', 'PARIS', '0651080681', null, 'pascalsorin@gmail.com','reseau','2014-06-02 09:00:00', 0);
   
   INSERT INTO formateur
-  (id_personne, date_entree) VALUES
-  (1, '2014-06-02'),
-  (2, '2014-06-02');
+  (id_personne) VALUES
+  (4),
+  (5);
 
   INSERT INTO module
   (id_module, nom, objectif, contenu, nb_heures, prerequis) VALUES
