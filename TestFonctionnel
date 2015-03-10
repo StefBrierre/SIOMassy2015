@@ -1,0 +1,8 @@
+Test Fonctionnel
+Fichier csv —> BD
+Première ligne = noms des champs.
+Tous les champs requis sont présents.
+Il peut y avoir d’autres champs, non pris en compte.
+L’ordre des champs est indifférent.
+Les noms des champs peuvent être en majuscule ou minuscule ou avoir des espaces mais sans accents.
+Le mot de passe sera généré.
