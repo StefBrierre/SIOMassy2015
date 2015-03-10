@@ -21,7 +21,7 @@
 
                 <label>Session</label>
 
-                <select>
+                <select name="session">
                     <option value="sioSlam1415">BTS SIO SLAM 2014-2015</option>
                     <option value="sioSisr1415">BTS SIO SISR 2014-2015</option>
                     <option value="blabla">BLA BLA BLA</option>
@@ -32,7 +32,7 @@
             <div class="row">
                 <label>Module</label>
 
-                <select>
+                <select name="module">
                     <option value="mathematiques">Mathématiques</option>
                     <option value="Francais">Français</option>
                     <option value="lalala">La la la</option>
@@ -43,7 +43,7 @@
             <div class="row">
                 <label>Formateur</label>
 
-                <select>
+                <select name="formateur">
                     <option value="mr_martin">Mr Martin</option>
                     <option value="mme_martine">Mme Martine</option>
                     <option value="mlle_durant">Mlle Durant</option>
