@@ -81,6 +81,7 @@
             <div class="row">
 
                 <input type="submit" name="ok" value="Valider">
+                <input type="reset" name="annulerSaisie" value="Annuler">
 
             </div>
 
