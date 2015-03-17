@@ -41,7 +41,7 @@ BEGIN
   (1, 'M.', 'Joel', 'BANKA', '3 Rue du Gros Chêne', '92370', 'CHAVILLE', '0614787928', null, 'bankajoel@yahoo.fr', 'banka', '2014-06-02 09:00:00', 0),
   (2, 'Mle', 'Stephanie', 'BRIERRE', '40 Rue EXELMANS', '78140', 'VELIZY', '0662931606', null, 'stephanibrierRe@gmail.com', 'telephone', '2014-06-02 09:00:00', 0),
   (3, 'Mle', 'Marion', 'DESCIEUX', '60 Rue du General leclerc', '91470', 'FORGES LES BAINS', '0673422520', null, 'mariondescieux@yahoo.fr', 'bouboul', '2014-06-02 09:00:00', 0),
-  (4, 'M.',  'Michel', 'PLACE', '43 Rue Saint louis a lile', '75100', 'PARIS', '0651080681', null, 'michelplace@free.fr','internet','2014-06-02 09:00:00', 0),
+  (4, 'M.',  'Michel', 'PLASSE', '43 Rue Saint louis a lile', '75100', 'PARIS', '0651080681', null, 'michelplace@free.fr','internet','2014-06-02 09:00:00', 0),
   (5, 'M.',  'Pascal', 'SORIN', '43 Rue Saint louis a lile', '75100', 'PARIS', '0651080681', null, 'pascalsorin@gmail.com','reseau','2014-06-02 09:00:00', 0);
   
   INSERT INTO formateur
@@ -73,3 +73,74 @@ BEGIN
 END$
 CALL refresh_base()$
 
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS personne_before_insert_trigger$$
+
+CREATE TRIGGER personne_before_insert_trigger
+BEFORE INSERT ON personne
+FOR EACH ROW
+BEGIN
+	SET NEW.prenom = trim(initcap(NEW.prenom));
+	IF NEW.prenom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Prénom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.nom = trim(UPPER(NEW.nom));
+    IF NEW.nom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Nom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.adresse = trim(initcapAdresse(NEW.adresse));
+    IF NEW.adresse REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Adresse vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    Set NEW.ville = trim(initcap(NEW.ville));
+	IF NEW.ville REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Ville vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.telephone =  replace(replace(NEW.telephone, '.', ''), ' ', '');
+    
+END$$
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS personne_before_update_trigger$$
+
+CREATE TRIGGER personne_before_update_trigger
+BEFORE UPDATE ON personne
+FOR EACH ROW
+BEGIN
+	SET NEW.prenom = trim(initcap(NEW.prenom));
+	IF NEW.prenom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Prénom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.nom = trim(UPPER(NEW.nom));
+    IF NEW.nom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Nom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.adresse = trim(initcapAdresse(NEW.adresse));
+    IF NEW.adresse REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Adresse vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    Set NEW.ville = trim(initcap(NEW.ville));
+	IF NEW.ville REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Ville vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.telephone =  replace(replace(NEW.telephone, '.', ''), ' ', '');
+    
+END$$

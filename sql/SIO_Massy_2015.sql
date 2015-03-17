@@ -353,3 +353,76 @@ DELIMITER ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS personne_before_update_trigger$$
+
+CREATE TRIGGER personne_before_update_trigger
+BEFORE UPDATE ON personne
+FOR EACH ROW
+BEGIN
+	SET NEW.prenom = trim(initcap(NEW.prenom));
+	IF NEW.prenom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Prénom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.nom = trim(UPPER(NEW.nom));
+    IF NEW.nom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Nom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.adresse = trim(initcapAdresse(NEW.adresse));
+    IF NEW.adresse REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Adresse vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    Set NEW.ville = trim(initcap(NEW.ville));
+	IF NEW.ville REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Ville vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.telephone =  replace(replace(NEW.telephone, '.', ''), ' ', '');
+    
+END$$
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS personne_before_insert_trigger$$
+
+CREATE TRIGGER personne_before_insert_trigger
+BEFORE INSERT ON personne
+FOR EACH ROW
+BEGIN
+	SET NEW.prenom = trim(initcap(NEW.prenom));
+	IF NEW.prenom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Prénom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.nom = trim(UPPER(NEW.nom));
+    IF NEW.nom REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Nom vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.adresse = trim(initcapAdresse(NEW.adresse));
+    IF NEW.adresse REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Adresse vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    Set NEW.ville = trim(initcap(NEW.ville));
+	IF NEW.ville REGEXP '^ *$' THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT='Ville vide', MYSQL_ERRNO=3000;
+	END if;
+    
+    SET NEW.telephone =  replace(replace(NEW.telephone, '.', ''), ' ', '');
+    
+END$$
