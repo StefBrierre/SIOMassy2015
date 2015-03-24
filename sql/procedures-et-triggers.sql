@@ -1,9 +1,7 @@
-DELIMITER $
-DROP PROCEDURE IF EXISTS refresh_base$
+DELIMITER $$
+DROP PROCEDURE IF EXISTS refresh_base$$
 
 CREATE  PROCEDURE refresh_base()
-
-
 BEGIN
   -- Lever temporairement les contraintes d'intégrité
   SET FOREIGN_KEY_CHECKS=0;
@@ -71,11 +69,14 @@ BEGIN
   (2, 'BTS CG 2016', '2015-09-25', '2016-09-15', '2ème session pour le BTS CG', 2, '2015-07-25 09:00:00', '2015-08-25 18:00:00'),
   (3, 'BTS Audio 2016', '2015-11-15', '2016-11-05', '1ère session pour le BTS Audiovisuel option son', 2, '2015-09-15 09:00:00', '2015-10-25 18:00:00');
 
+  INSERT INTO evaluation
+  (id_evaluation, id_module, id_session, id_formateur) VALUES
+  (1, 1, 1, 5),
+  (2, 2, 2, 4);
   COMMIT;
-END$
-CALL refresh_base()$
+END$$
+CALL refresh_base()$$
 
-DELIMITER $$
 
 DROP TRIGGER IF EXISTS personne_before_insert_trigger$$
 
@@ -111,7 +112,6 @@ BEGIN
     
 END$$
 
-DELIMITER $$
 
 DROP TRIGGER IF EXISTS personne_before_update_trigger$$
 
