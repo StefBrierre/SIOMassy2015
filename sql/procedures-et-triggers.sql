@@ -73,6 +73,24 @@ BEGIN
   (id_evaluation, id_module, id_session, id_formateur) VALUES
   (1, 1, 1, 5),
   (2, 2, 2, 4);
+
+  INSERT INTO etat_candidature
+  (id_etat_candidature, libelle) VALUES
+  (0, 'validée'),
+  (1, 'en attente de traitement'),
+  (2, 'refusée '),
+  (3, 'convoqué'),
+  (4, 'accepté'),
+  (5, 'inscrit'),
+  (6, 'désisté'),
+  (7, 'liste d''attente');
+
+  INSERT INTO candidature
+  (id_session, id_personne, id_etat_candidature, date_effet, motivation) VALUES
+  (1, 1, 5, '2014-06-02', 'no comment'),
+  (1, 2, 5, '2014-06-02', 'no comment'),
+  (1, 3, 5, '2014-06-02', 'no comment');
+
   COMMIT;
 END$$
 CALL refresh_base()$$
