@@ -1,9 +1,7 @@
-DELIMITER $
-DROP PROCEDURE IF EXISTS refresh_base$
+DELIMITER $$
+DROP PROCEDURE IF EXISTS refresh_base$$
 
 CREATE  PROCEDURE refresh_base()
-
-
 BEGIN
   -- Lever temporairement les contraintes d'intégrité
   SET FOREIGN_KEY_CHECKS=0;
@@ -71,11 +69,32 @@ BEGIN
   (2, 'BTS CG 2016', '2015-09-25', '2016-09-15', '2ème session pour le BTS CG', 2, '2015-07-25 09:00:00', '2015-08-25 18:00:00'),
   (3, 'BTS Audio 2016', '2015-11-15', '2016-11-05', '1ère session pour le BTS Audiovisuel option son', 2, '2015-09-15 09:00:00', '2015-10-25 18:00:00');
 
-  COMMIT;
-END$
-CALL refresh_base()$
+  INSERT INTO evaluation
+  (id_evaluation, id_module, id_session, id_formateur) VALUES
+  (1, 1, 1, 5),
+  (2, 2, 2, 4);
 
-DELIMITER $$
+  INSERT INTO etat_candidature
+  (id_etat_candidature, libelle) VALUES
+  (0, 'validée'),
+  (1, 'en attente de traitement'),
+  (2, 'refusée '),
+  (3, 'convoqué'),
+  (4, 'accepté'),
+  (5, 'inscrit'),
+  (6, 'désisté'),
+  (7, 'liste d''attente');
+
+  INSERT INTO candidature
+  (id_session, id_personne, id_etat_candidature, date_effet, motivation) VALUES
+  (1, 1, 5, '2014-06-02', 'no comment'),
+  (1, 2, 5, '2014-06-02', 'no comment'),
+  (1, 3, 5, '2014-06-02', 'no comment');
+
+  COMMIT;
+END$$
+CALL refresh_base()$$
+
 
 DROP TRIGGER IF EXISTS personne_before_insert_trigger$$
 
@@ -111,7 +130,6 @@ BEGIN
     
 END$$
 
-DELIMITER $$
 
 DROP TRIGGER IF EXISTS personne_before_update_trigger$$
 
