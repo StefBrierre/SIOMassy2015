@@ -11,8 +11,10 @@ class Creer_eval extends CI_Controller {
        $this->load->helper(array('form', 'url'));
        $data["sessions"] = $this->Creer_eval_m->getSessions();
        $this->load->view('Creer_eval_v', $data);
-        
     }
+    
+    
+    
 }
 
      
