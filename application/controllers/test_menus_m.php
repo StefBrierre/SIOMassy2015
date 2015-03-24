@@ -12,6 +12,7 @@ class Test_menus_m extends CI_Controller {
 
   public function index() {
     $this->testGetSessionsEnCours();
+    $this->testGetStagiaires();
   }
 
   /** Sessions en cours sous forme d'un tableau associatif value => nom.
@@ -30,4 +31,13 @@ class Test_menus_m extends CI_Controller {
     echo $this->unit->run($result, $expected, "getSessionsEnCours");
   }
 
+  public function testGetStagiaires() {
+      $exception = array(
+        1 => "Joel BANKA",
+        2 => "Stephanie BRIERRE",
+        3 => "Marion DESCIEUX"
+        );
+      $reponse = $this->menus_m->getStagiaires(1);
+      echo $this->unit->run($reponse, $exception, "getStagiaires");
+  }
 }
