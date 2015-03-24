@@ -10,7 +10,7 @@ RewriteEngine on
 # robots.txt (pour l'indexation par les robots), favicon.ico
 # (icône symbolisant le site), et la racine du site
 RewriteCond $1 !^(index\.php|items|css|js|images|robots\.txt|favicon\.ico|$)
-RewriteBase /nb/SIOMassy2015/
+RewriteBase /SIOMassy2015/
 # Reecrire les url en les préfixant de index.php/
 RewriteRule ^(.*)$ index.php/$1 [L]
 
