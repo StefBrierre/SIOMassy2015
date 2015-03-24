@@ -1,0 +1,180 @@
+@CHARSET "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+    font-family: 'calibri', arial, sans-serif;
+    border: none;
+    border: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/************************* COMMUN A TOUTES LES PAGES *************************/
+
+body{
+    background-color : #CBCBCB;
+    width: 1024px;
+    border : 1px solid black;
+}
+
+main{
+    width : 100%;
+    margin : 0 auto;
+}
+
+section {
+    float : left;
+    width : 100%;
+}
+
+/************************* FORMULAIRES AJOUT BILAN *************************/
+
+#creation_bilan {
+    float : left;
+    width : 100%;
+    height: 50px;
+}
+
+#creation_bilan h1 {
+    text-align : center;
+    font-size : 28px;
+}
+
+#liste_session {
+    float : left;
+    width : 100%;
+    text-align : center;
+    position : relative;
+}
+
+#liste_session #session {
+    position : absolute;
+    top : 10px;
+    left : 300px;
+    font-size: 20px;
+}
+
+#liste_session select {
+    position : absolute;
+    top : 10px;
+    left : 550px;
+    width : 150px;
+    font-size: 20px;
+}
+
+#liste_session #date {
+    position: absolute;
+    top : 50px;
+    left : 300px;
+    font-size: 20px;
+}
+
+#liste_session input[type = 'text'] {
+    position : absolute;
+    top : 50px;
+    left : 550px;
+    font-size: 20px;
+    width : 150px;
+    text-indent: 5px;
+}
+
+#liste_session button {
+    position : absolute;
+    top : 100px;
+    left: 500px;
+    font-size: 20px;
+    width: 100px;
+    border: solid #fff;
+}
+
+/************************* PAGE BULLETINNOTES *************************/
+
+#bulletin {
+    float : left;
+    width : 100%;
+    height: 140px;
+    position : relative;
+}
+
+#bulletin img {
+    width : 25%;
+    height: auto;
+    position : absolute;
+    top: 10px;
+    left : 1%;
+}
+
+#bulletin #diplome {
+    position : absolute;
+    top : 10px;
+    left : 40%;
+    font-size: 2vw;
+}
+
+#bulletin #annee {
+    position : absolute;
+    top : 50px;
+    left : 30%;
+    font-size: 1.2vw;
+}
+
+#bulletin #semestre {
+    width: 20%;
+    position : absolute;
+    top : 75px;
+    left : 30%;
+    font-size: 1.2vw;
+}
+
+#bulletin #semestre input {
+    font-size: 1.2vw;
+    margin: 0% 0% 0% 2%;
+}
+
+#bulletin #nom {
+    position : absolute;
+    top : 50px;
+    left : 60%;
+    font-size: 1.2vw;
+}
+
+#bulletin #date {
+    position : absolute;
+    top : 75px;
+    left : 60%;
+    font-size: 1.2vw;
+}
+
+#notes {
+    width : 98%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 1%;
+}
+
+#notes td, th
+{
+    border: 1px solid black;
+}
+
+#notes #matiere {
+    width: 10%;
+}
+
+#notes #enseignant {
+    width: 10%;
+}
+
+#notes #stagiaire {
+    width: 8%;
+}
+
+#notes #commentaire {
+
+}
+
+#notes .moyenne {
+    border: 1px solid black;
+    width: 8%;
+}

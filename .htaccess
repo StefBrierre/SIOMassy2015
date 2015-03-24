@@ -1,13 +1,21 @@
 # Send all responses in utf-8
 AddDefaultCharset utf-8
 # Allow directory browsing
-Options +Indexes +FollowSymLinks
+Options +Indexes
 
 #Use url rewriting
-#RewriteEngine on
+RewriteEngine on
+
+# Ignorer la reecriture pour index.php, css, js, images,
+# robots.txt (pour l'indexation par les robots), favicon.ico
+# (icône symbolisant le site), et la racine du site
+RewriteCond $1 !^(index\.php|items|css|js|images|robots\.txt|favicon\.ico|$)
+RewriteBase /nb/SIOMassy2015/
+# Reecrire les url en les préfixant de index.php/
+RewriteRule ^(.*)$ index.php/$1 [L]
+
 # Base directory for rewritng
 #RewriteBase /cours/php/tps/PhpManip/
 # Example
 #RewriteRule ^tutorial/favourite-dish$ tutorial/03-standard-form.php
-#RewriteRule ^tutorial/person-(.*)$ tutorial/PersonResource.php?id=$1
 
