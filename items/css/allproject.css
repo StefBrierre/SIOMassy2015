@@ -14,7 +14,8 @@
 
 body{
     background-color : #CBCBCB;
-    width: 1024px;
+    width: 100%;
+    height : 100%;
     border : 1px solid black;
 }
 
@@ -33,58 +34,61 @@ section {
 #creation_bilan {
     float : left;
     width : 100%;
-    height: 50px;
+    height: 25%;
+    position: relative;
 }
 
 #creation_bilan h1 {
-    text-align : center;
-    font-size : 28px;
+    font-size : 2.5vw;
+    position : absolute;
+    top : 30%;
+    left : 30.5%;
 }
 
 #liste_session {
     float : left;
     width : 100%;
-    text-align : center;
+    height : 75%;
     position : relative;
 }
 
 #liste_session #session {
     position : absolute;
-    top : 10px;
-    left : 300px;
-    font-size: 20px;
+    top : 15%;
+    left : 32.5%;
+    font-size: 1.6vw;
 }
 
 #liste_session select {
     position : absolute;
-    top : 10px;
-    left : 550px;
-    width : 150px;
-    font-size: 20px;
+    top : 15%;
+    left : 53%;
+    width : 15%;
+    font-size: 1.6vw;
 }
 
 #liste_session #date {
     position: absolute;
-    top : 50px;
-    left : 300px;
-    font-size: 20px;
+    top : 40%;
+    left : 32.5%;
+    font-size: 1.6vw;
 }
 
 #liste_session input[type = 'text'] {
     position : absolute;
-    top : 50px;
-    left : 550px;
-    font-size: 20px;
-    width : 150px;
-    text-indent: 5px;
+    top : 40%;
+    left : 53%;
+    font-size: 1.6vw;
+    width : 15%;
+    text-indent: 5%;
 }
 
 #liste_session button {
     position : absolute;
-    top : 100px;
-    left: 500px;
-    font-size: 20px;
-    width: 100px;
+    top : 70%;
+    left: 42.5%;
+    font-size: 1.6vw;
+    width: 15%;
     border: solid #fff;
 }
 
@@ -177,4 +181,20 @@ section {
 #notes .moyenne {
     border: 1px solid black;
     width: 8%;
+}
+
+#appréciation {
+    border-collapse: collapse;
+    font-size: 1vw;
+    margin: 1%;
+    width: 50%;
+}
+
+#signature {
+    border-collapse: collapse;
+    font-size: 1vw;
+    margin: 1%;
+    width: 20%;
+    position: absolute;
+    left: 48.1%;
 }
