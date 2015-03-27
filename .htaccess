@@ -4,15 +4,15 @@ AddDefaultCharset utf-8
 Options +Indexes
 
 #Use url rewriting
-RewriteEngine on
+#RewriteEngine on
 
 # Ignorer la reecriture pour index.php, css, js, images,
 # robots.txt (pour l'indexation par les robots), favicon.ico
 # (icône symbolisant le site), et la racine du site
-RewriteCond $1 !^(index\.php|items|css|js|images|robots\.txt|favicon\.ico|$)
-RewriteBase /SIOMassy2015/
+#RewriteCond $1 !^(index\.php|items|css|js|images|robots\.txt|favicon\.ico|$)
+#RewriteBase /nb/SIOMassy2015/
 # Reecrire les url en les préfixant de index.php/
-RewriteRule ^(.*)$ index.php/$1 [L]
+#RewriteRule ^(.*)$ index.php/$1 [L]
 
 # Base directory for rewritng
 #RewriteBase /cours/php/tps/PhpManip/
